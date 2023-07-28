@@ -5,6 +5,9 @@
 <!-- default badges end -->
 # Populate E-Forms in a PDF File
 
+<img src="https://github.com/DevExpress-Examples/maui-populate-pdf-file-forms/assets/12169834/744fca9b-f214-4a3e-828d-790439b634b1" width="30%"/>
+
+
 > NOTE
 >
 > This project requires PDF document processing functionality available in [DevExpress Office File API (Basic)](https://www.devexpress.com/buy). You can obtain this product as part of the following DevExpress subscriptions: Universal, DXperience, WinForms, WPF, and ASP.NET.
