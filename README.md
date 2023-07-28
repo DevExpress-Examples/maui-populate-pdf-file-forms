@@ -5,7 +5,7 @@
 <!-- default badges end -->
 # Populate E-Forms in a PDF File
 
-<img src="https://github.com/DevExpress-Examples/maui-populate-pdf-file-forms/assets/12169834/744fca9b-f214-4a3e-828d-790439b634b1" width="30%"/>
+<img src="https://github.com/DevExpress-Examples/maui-populate-pdf-file-forms/assets/12169834/9b4feece-ddd1-452a-ab9e-71402d6657f3" width="30%"/>
 
 > NOTE
 >
