@@ -5,13 +5,13 @@
 <!-- default badges end -->
 # Populate E-Forms in a PDF File
 
-<img src="https://github.com/DevExpress-Examples/maui-populate-pdf-file-forms/assets/12169834/9b4feece-ddd1-452a-ab9e-71402d6657f3" width="30%"/>
-
 > NOTE
 >
 > This project requires PDF document processing functionality available in [DevExpress Office File API (Basic)](https://www.devexpress.com/buy). You can obtain this product as part of the following DevExpress subscriptions: Universal, DXperience, WinForms, WPF, and ASP.NET.
 
 This example implements a view that opens a PDF File, obtains form fields, and allows you to populate them. Note that the sample application supports a limited set of PDF file form fields, but you can extend the functionality according to your needs. 
+
+<img src="https://github.com/DevExpress-Examples/maui-populate-pdf-file-forms/assets/12169834/9b4feece-ddd1-452a-ab9e-71402d6657f3" width="30%"/>
 
 **Related Controls and Their Properties**: 
 
