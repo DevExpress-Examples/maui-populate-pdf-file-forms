@@ -7,9 +7,9 @@
 
 > NOTE
 >
-> This project requires PDF document processing functionality available in [DevExpress Office File API (Basic)](https://www.devexpress.com/buy). You can obtain this product as part of the following DevExpress subscriptions: Universal, DXperience, WinForms, WPF, and ASP.NET.
+> This example requires the [DevExpress Office File API (Basic)](https://www.devexpress.com/buy). The DevExpress Office File API (Basic Edition) is included in the following DevExpress Subscriptions: Universal, DXperience, WinForms, WPF, and 
 
-This example implements a view that opens a PDF File, obtains form fields, and allows you to populate them. Note that the sample application supports a limited set of PDF file form fields, but you can extend the functionality according to your needs. 
+This example implements a view that opens a PDF File, obtains form fields, and allows you to populate them. The sample application supports a limited set of PDF form fields. You can extend the capabilities of this sample (and support additional PDF form fields) as requirements dictate. 
 
 <img src="https://github.com/DevExpress-Examples/maui-populate-pdf-file-forms/assets/12169834/9b4feece-ddd1-452a-ab9e-71402d6657f3" width="30%"/>
 
@@ -21,18 +21,19 @@ This example implements a view that opens a PDF File, obtains form fields, and a
 
 ## Implementation Details
 
-* Call the [PdfDocumentProcessor.LoadDocument](https://docs.devexpress.com/OfficeFileAPI/DevExpress.Pdf.PdfDocumentProcessor.LoadDocument.overloads) method to load a PDF file. If you open a PDF file included in the project, first copy the file to the **AppData** folder.
+* Call the [PdfDocumentProcessor.LoadDocument](https://docs.devexpress.com/OfficeFileAPI/DevExpress.Pdf.PdfDocumentProcessor.LoadDocument.overloads) method to load a PDF file. If you open the PDF file included with this project, copy the file to the **AppData** folder first.
 * Call the [PdfAcroFormFacade.GetFields](https://docs.devexpress.com/OfficeFileAPI/DevExpress.Pdf.PdfAcroFormFacade.GetFields) method to obtain form fields from the PDF file.
+
     
     ```xml
     DocumentProcessor.DocumentFacade.AcroForm.GetFields();
     ```
-* You can determine field type, value, and settings. To change a field value, assign the new value to the [PdfTextFormFieldFacade.Value](https://docs.devexpress.com/OfficeFileAPI/DevExpress.Pdf.PdfTextFormFieldFacade.Value) property. 
+* You can determine field type, value, and settings. To change a field value, assign the new value to the [PdfTextFormFieldFacade.Value](https://docs.devexpress.com/OfficeFileAPI/DevExpress.Pdf.PdfTextFormFieldFacade.Value) property.	
     
     ```xml
     ((PdfTextFormFieldFacade)field).Value = "newValue";
     ```
-* The *EditPageViewModel.Properties* collection contains information about field editors used in the PDF file. The *DataFormPropertySourceBehavior.PropertiesSource* property is bound to this collection to populate the [DataFormView](https://docs.devexpress.com/MAUI/403640) control with editors. The *DataFormPropertySourceBehavior.ItemTemplate* property defines a template used to display [DataFormView](https://docs.devexpress.com/MAUI/403640) editors.
+* The *DataFormPropertySourceBehavior.PropertiesSource* property is bound to this collection and populates the [DataFormView](https://docs.devexpress.com/MAUI/403640) control with editors. The _DataFormPropertySourceBehavior.ItemTemplate_ property defines the template used to display DataFormView editors.
   
     ```xml
     <dxdf:DataFormView>
@@ -41,7 +42,7 @@ This example implements a view that opens a PDF File, obtains form fields, and a
         </dxdf:DataFormView.Behaviors>
     </dxdf:DataFormView>
     ```
-* Field values are stored in the *editedObject* dictionary (`Dictionary<string, object>`). This project creates an edit form with the help of a [DataFormView](https://docs.devexpress.com/MAUI/403640) control bound to this *editedObject* dictionary.
+* This project creates an edit form using the [DataFormView](https://docs.devexpress.com/MAUI/403640) control bound to this _editedObject_ dictionary.
 * The [ValidateProperty](https://docs.devexpress.com/MAUI/DevExpress.Maui.DataForm.DataFormView.ValidateProperty) event validates form fields.
     
     ```
@@ -53,7 +54,7 @@ This example implements a view that opens a PDF File, obtains form fields, and a
     }
     ```
 
-* The type of a DataFormView editor depends on the type of the corresponding PDF file field:
+* DataFormView editor type depends on the corresponding PDF field type:
   
   | PDF field type | DataFormView editor |
   |-|-|
@@ -63,6 +64,6 @@ This example implements a view that opens a PDF File, obtains form fields, and a
   | ComboBox | [DataFormComboBoxItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.DataForm.DataFormComboBoxItem) |
   | RadioGroup| [DataFormComboBoxItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.DataForm.DataFormComboBoxItem) |
 
-* When the [DataFormComboBoxItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.DataForm.DataFormComboBoxItem) contains a small number of available items, it displays them in popup. Otherwise, the [DataFormComboBoxItem.PickerShowMode](https://docs.devexpress.com/MAUI/DevExpress.Maui.DataForm.DataFormComboBoxItem.PickerShowMode) property is set to [BottomSheet](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.DropDownShowMode) and  displays the list of items in the [BottomSheet](https://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.BottomSheet) control. 
+* If the [DataFormComboBoxItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.DataForm.DataFormComboBoxItem) contains a limited number of available items, it displays items within a popup. Otherwise, the [DataFormComboBoxItem.PickerShowMode](https://docs.devexpress.com/MAUI/DevExpress.Maui.DataForm.DataFormComboBoxItem.PickerShowMode) property is set to [BottomSheet](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.DropDownShowMode) and  displays the item list in the DevExpress .NET MAUI  [BottomSheet](https://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.BottomSheet) control. 
 
 * The [PdfDocumentProcessor.SaveDocument](https://docs.devexpress.com/OfficeFileAPI/DevExpress.Pdf.PdfDocumentProcessor.SaveDocument.overloads) method saves changes.
