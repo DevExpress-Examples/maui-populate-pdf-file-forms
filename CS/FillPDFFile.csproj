@@ -37,13 +37,13 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
     <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-    <PackageReference Include="DevExpress.Document.Processor" Version="23.2.2-beta" />
+    <PackageReference Include="DevExpress.Document.Processor" Version="23.2.*" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
-    <PackageReference Include="DevExpress.Drawing.Skia" Version="23.2.2-beta" />
-    <PackageReference Include="DevExpress.Maui.Editors" Version="23.2.2-beta" />
-    <PackageReference Include="DevExpress.Maui.Controls" Version="23.2.2-beta" />
-    <PackageReference Include="DevExpress.Data" Version="23.2.2-beta" />
-    <PackageReference Include="DevExpress.Pdf.SkiaRenderer" Version="23.2.2-beta" />
+    <PackageReference Include="DevExpress.Drawing.Skia" Version="23.2.*" />
+    <PackageReference Include="DevExpress.Maui.Editors" Version="23.2.*" />
+    <PackageReference Include="DevExpress.Maui.Controls" Version="23.2.*" />
+    <PackageReference Include="DevExpress.Data" Version="23.2.*" />
+    <PackageReference Include="DevExpress.Pdf.SkiaRenderer" Version="23.2.*" />
     <PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.3" />
   </ItemGroup>
   <ItemGroup>
