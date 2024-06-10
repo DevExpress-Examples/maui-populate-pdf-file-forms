@@ -9,21 +9,12 @@ namespace FillPDFFile.ViewModels;
 
 public class MainPageViewModel : BindableBase {
     #region fields
-    ImageSource pdfPreview;
     const string defaultDocumentName = "arrivalform.pdf";
     string document;
     bool isLoading;
     #endregion fields
     #region properties
-    public ImageSource PdfPreview {
-        get {
-            return pdfPreview;
-        }
-        set {
-            pdfPreview = value;
-            RaisePropertyChanged();
-        }
-    }
+
     public string Document {
         get {
             return document;
@@ -51,13 +42,9 @@ public class MainPageViewModel : BindableBase {
     #endregion properties
     public MainPageViewModel() {
         InitFiles().Wait();
-        EditDocumentFieldsCommand = new Command(EditDocumentFields);
         OpenFileCommand = new Command(OpenFile);
     }
-    async void EditDocumentFields() {
-        var navigationParameter = new Dictionary<string, object> { { "Document", Document } };
-        await Shell.Current.GoToAsync("editFieldsPage", navigationParameter);
-    }
+
     private async Task InitFiles() {
         string resultPath = await CopyWorkingFilesToAppData(defaultDocumentName);
         Document = resultPath;
@@ -87,8 +74,6 @@ public class MainPageViewModel : BindableBase {
         previewImageStream.Seek(0, SeekOrigin.Begin);
 
         var img = SKBitmap.Decode(previewImageStream);
-
-        PdfPreview = (SKBitmapImageSource)img;
     }
 
     private async void OpenFile() {

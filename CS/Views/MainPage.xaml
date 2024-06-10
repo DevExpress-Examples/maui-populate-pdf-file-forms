@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:dxdf="clr-namespace:DevExpress.Maui.DataForm;assembly=DevExpress.Maui.Editors"
+    xmlns:pdf="clr-namespace:DevExpress.Maui.Pdf;assembly=DevExpress.Maui.Pdf"
     xmlns:dxc="clr-namespace:DevExpress.Maui.Controls;assembly=DevExpress.Maui.Controls" x:Class="FillPDFFile.MainPage" NavigatedTo="NavigatedToPage"
     xmlns:viewModels="clr-namespace:FillPDFFile.ViewModels"
     xmlns:local="clr-namespace:FillPDFFile;assembly=FillPDFFile" BackgroundColor="#bcbcbc"
     Title="Edit PDF File" >
+    
     <ContentPage.ToolbarItems >
         <ToolbarItem Text="Open File"  Command="{Binding OpenFileCommand}" />
     </ContentPage.ToolbarItems>
+
     <ContentPage.BindingContext>
         <viewModels:MainPageViewModel/>
     </ContentPage.BindingContext>
+    
     <Grid>
-        <local:PinchAndPanContainer>
-            <Image Margin="0,0,0,0" VerticalOptions="Center" x:Name="imageControl" Source="{Binding PdfPreview}" Aspect="AspectFit"/>
-        </local:PinchAndPanContainer>
-        <Button x:Name="FillBtn" Text="✎" FontSize="36" Command="{Binding EditDocumentFieldsCommand}" HorizontalOptions="End" VerticalOptions="End" CornerRadius="30" WidthRequest="60" HeightRequest="60" Padding="0" Margin="0,0,25,10"/>
+        <pdf:PdfViewer ShowToolbar="True" DocumentSource="arrivalform.pdf" />
     </Grid>
 </ContentPage>

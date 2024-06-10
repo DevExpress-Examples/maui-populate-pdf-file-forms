@@ -13,7 +13,6 @@ namespace FillPDFFile {
         bool isPinchRunning;
 
         public PinchAndPanContainer() {
-
             PinchGestureRecognizer pinchGesture = new PinchGestureRecognizer();
             pinchGesture.PinchUpdated += OnPinchUpdated;
             GestureRecognizers.Add(pinchGesture);

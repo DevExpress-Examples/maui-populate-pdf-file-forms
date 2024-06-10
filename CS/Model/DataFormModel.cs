@@ -22,6 +22,4 @@ namespace FillPDFFile.Model
         }
     }
     public enum Types { Text, RadioGroup, ComboBox }
-
-
 }
