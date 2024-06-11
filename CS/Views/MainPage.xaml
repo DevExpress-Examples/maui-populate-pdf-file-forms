@@ -2,20 +2,15 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:pdf="clr-namespace:DevExpress.Maui.Pdf;assembly=DevExpress.Maui.Pdf"
-    xmlns:dxc="clr-namespace:DevExpress.Maui.Controls;assembly=DevExpress.Maui.Controls" x:Class="FillPDFFile.MainPage" NavigatedTo="NavigatedToPage"
+    xmlns:dxc="clr-namespace:DevExpress.Maui.Controls;assembly=DevExpress.Maui.Controls" x:Class="FillPDFFile.MainPage"
     xmlns:viewModels="clr-namespace:FillPDFFile.ViewModels"
     xmlns:local="clr-namespace:FillPDFFile;assembly=FillPDFFile" BackgroundColor="#bcbcbc"
     Title="Edit PDF File" >
-    
+
     <ContentPage.ToolbarItems >
-        <ToolbarItem Text="Open File"  Command="{Binding OpenFileCommand}" />
+        <ToolbarItem IconImageSource="open" Command="{Binding Commands.ShowOpenFileDialog, Source={x:Reference pdfViewer}}" />
+        <ToolbarItem IconImageSource="share" Command="{Binding Commands.ShareDocument, Source={x:Reference pdfViewer}}" />
     </ContentPage.ToolbarItems>
 
-    <ContentPage.BindingContext>
-        <viewModels:MainPageViewModel/>
-    </ContentPage.BindingContext>
-    
-    <Grid>
-        <pdf:PdfViewer ShowToolbar="True" DocumentSource="arrivalform.pdf" />
-    </Grid>
+    <pdf:PdfViewer x:Name="pdfViewer" DocumentSource="arrivalform.pdf" />
 </ContentPage>
