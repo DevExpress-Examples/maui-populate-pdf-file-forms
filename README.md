@@ -3,67 +3,40 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T1181193)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-# Populate E-Forms in a PDF File
+# Populate E-Forms in a PDF File 
 
-> NOTE
->
-> This example requires the [DevExpress Office File API (Basic)](https://www.devexpress.com/buy). The DevExpress Office File API (Basic Edition) is included in the following DevExpress Subscriptions: Universal, DXperience, WinForms, WPF, and 
+This example uses the [PDFViewer](https://docs.devexpress.com/MAUI/DevExpress.Maui.Pdf.PdfViewer?v=24.1) component to display and edit a PDF document that contains interactive forms (AcroForms).
 
-This example implements a view that opens a PDF File, obtains form fields, and allows you to populate them. The sample application supports a limited set of PDF form fields. You can extend the capabilities of this sample (and support additional PDF form fields) as requirements dictate. 
+TODO GIF
 
-<img src="https://github.com/DevExpress-Examples/maui-populate-pdf-file-forms/assets/12169834/9b4feece-ddd1-452a-ab9e-71402d6657f3" width="30%"/>
+## Included Controls and Their Properties
 
-**Related Controls and Their Properties**: 
-
-* [OfficeFileAPI](https://docs.devexpress.com/MAUI/404434): [PdfDocumentProcessor](https://docs.devexpress.com/MAUI/DevExpress.Pdf.PdfDocumentProcessor), [PdfFormFieldFacade](https://docs.devexpress.com/MAUI/DevExpress.Pdf.PdfFormFieldFacade)
 * [ToolbarItems](https://learn.microsoft.com/en-us/dotnet/api/microsoft.maui.controls.toolbaritem)
-* [DataFormView](https://docs.devexpress.com/MAUI/403640): [DataObject](https://docs.devexpress.com/MAUI/DevExpress.Maui.DataForm.DataFormView.DataObject), [IsAutoGenerationEnabled](https://docs.devexpress.com/MAUI/DevExpress.Maui.DataForm.DataFormView.IsAutoGenerationEnabled), [ValidateProperty](https://docs.devexpress.com/MAUI/DevExpress.Maui.DataForm.DataFormView.ValidateProperty)
+* [PDFViewer](https://docs.devexpress.com/MAUI/404632/pdf-viewer/pdf-viewer?v=24.1): [DocumentSource](https://docs.devexpress.com/MAUI/DevExpress.Maui.Pdf.PdfViewer.DocumentSource?v=24.1)
 
-## Implementation Details
+## Files to Review
 
-* Call the [PdfDocumentProcessor.LoadDocument](https://docs.devexpress.com/OfficeFileAPI/DevExpress.Pdf.PdfDocumentProcessor.LoadDocument.overloads) method to load a PDF file. If you open the PDF file included with this project, copy the file to the **AppData** folder first.
-* Call the [PdfAcroFormFacade.GetFields](https://docs.devexpress.com/OfficeFileAPI/DevExpress.Pdf.PdfAcroFormFacade.GetFields) method to obtain form fields from the PDF file.
+- [MainPage.xaml](./CS/Views/MainPage.xaml)
+- [MainPage.xaml.cs](./CS/Views/MainPage.xaml.cs)
 
-    
-    ```xml
-    DocumentProcessor.DocumentFacade.AcroForm.GetFields();
-    ```
-* You can determine field type, value, and settings. To change a field value, assign the new value to the [PdfTextFormFieldFacade.Value](https://docs.devexpress.com/OfficeFileAPI/DevExpress.Pdf.PdfTextFormFieldFacade.Value) property.	
-    
-    ```xml
-    ((PdfTextFormFieldFacade)field).Value = "newValue";
-    ```
-* The *DataFormPropertySourceBehavior.PropertiesSource* property is bound to this collection and populates the [DataFormView](https://docs.devexpress.com/MAUI/403640) control with editors. The _DataFormPropertySourceBehavior.ItemTemplate_ property defines the template used to display DataFormView editors.
-  
-    ```xml
-    <dxdf:DataFormView>
-        <dxdf:DataFormView.Behaviors>
-            <local:DataFormPropertySourceBehavior PropertiesSource="{Binding Properties}" ItemTemplate="{StaticResource formItemTemplateSelector}"/>
-        </dxdf:DataFormView.Behaviors>
-    </dxdf:DataFormView>
-    ```
-* This project creates an edit form using the [DataFormView](https://docs.devexpress.com/MAUI/403640) control bound to this _editedObject_ dictionary.
-* The [ValidateProperty](https://docs.devexpress.com/MAUI/DevExpress.Maui.DataForm.DataFormView.ValidateProperty) event validates form fields.
-    
-    ```
-    private void dataform_ValidateProperty(object sender, DataFormPropertyValidationEventArgs e) {
-        DataFormItem dataFormItem = ((DataFormView)sender).Items.FirstOrDefault(item => item.FieldName == e.PropertyName);
-        if (dataFormItem != null && ((EditedItemModel)dataFormItem.BindingContext).IsRequired && (e.NewValue == null || (e.NewValue is string strValue && string.IsNullOrEmpty(strValue)))) {
-            e.HasError = true;
-        }
-    }
-    ```
+## Documentation
 
-* DataFormView editor type depends on the corresponding PDF field type:
-  
-  | PDF field type | DataFormView editor |
-  |-|-|
-  | Text | [DataFormTextItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.DataForm.DataFormTextItem) |
-  | Date | [DataFormDateItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.DataForm.DataFormDateItem) |
-  | Masked Text | [DataFormMaskedItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.DataForm.DataFormMaskedItem) |
-  | ComboBox | [DataFormComboBoxItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.DataForm.DataFormComboBoxItem) |
-  | RadioGroup| [DataFormComboBoxItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.DataForm.DataFormComboBoxItem) |
+* [DevExpress PDF Viewer for .NET MAUI](https://docs.devexpress.com/MAUI/404632/pdf-viewer/pdf-viewer?v=24.1)
+* [PDF Viewer for .NET MAUI - Load Document](https://docs.devexpress.com/MAUI/404712/pdf-viewer/load-document?v=24.1#load-a-pdf-file)
+* [Fill in Interactive Forms in DevExpress PDF Viewer for .NET MAUI](https://docs.devexpress.com/MAUI/404953/pdf-viewer/interactive-forms?v=24.1)
 
-* If the [DataFormComboBoxItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.DataForm.DataFormComboBoxItem) contains a limited number of available items, it displays items within a popup. Otherwise, the [DataFormComboBoxItem.PickerShowMode](https://docs.devexpress.com/MAUI/DevExpress.Maui.DataForm.DataFormComboBoxItem.PickerShowMode) property is set to [BottomSheet](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.DropDownShowMode) and  displays the item list in the DevExpress .NET MAUI  [BottomSheet](https://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.BottomSheet) control. 
+## More Examples
 
-* The [PdfDocumentProcessor.SaveDocument](https://docs.devexpress.com/OfficeFileAPI/DevExpress.Pdf.PdfDocumentProcessor.SaveDocument.overloads) method saves changes.
+* [DevExpress .NET MAUI Demo Center](https://github.com/DevExpress-Examples/maui-demo-app)
+* [Stocks App](https://github.com/DevExpress-Examples/maui-stocks-mini)
+* [Data Grid](https://github.com/DevExpress-Examples/maui-data-grid-get-started)
+* [Data Form](https://github.com/DevExpress-Examples/maui-data-form-get-started)
+* [Data Editors](https://github.com/DevExpress-Examples/maui-editors-get-started)
+* [Charts](https://github.com/DevExpress-Examples/maui-charts)
+* [Scheduler](https://github.com/DevExpress-Examples/maui-scheduler-get-started)
+* [Tab Page](https://github.com/DevExpress-Examples/maui-tab-page-get-started)
+* [Tab View](https://github.com/DevExpress-Examples/maui-tab-view-get-started)
+* [Drawer Page](https://github.com/DevExpress-Examples/maui-drawer-page-get-started)
+* [Drawer View](https://github.com/DevExpress-Examples/maui-drawer-view-get-started)
+* [Collection View](https://github.com/DevExpress-Examples/maui-collection-view-get-started)
+* [Popup](https://github.com/DevExpress-Examples/maui-popup-get-started)
