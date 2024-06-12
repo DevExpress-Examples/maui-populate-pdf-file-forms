@@ -7,5 +7,4 @@
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent Title="Fill PDF Form" ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
-
 </Shell>
