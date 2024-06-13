@@ -12,8 +12,8 @@ This example uses the [PDFViewer](https://docs.devexpress.com/MAUI/DevExpress.Ma
 
 ## Included Controls and Their Properties
 
-* [ToolbarItems](https://learn.microsoft.com/en-us/dotnet/api/microsoft.maui.controls.toolbaritem)
-* [PDFViewer](https://docs.devexpress.com/MAUI/404632/pdf-viewer/pdf-viewer?v=24.1): [DocumentSource](https://docs.devexpress.com/MAUI/DevExpress.Maui.Pdf.PdfViewer.DocumentSource?v=24.1)
+* [ToolbarItem](https://learn.microsoft.com/en-us/dotnet/api/microsoft.maui.controls.toolbaritem)
+* [PdfViewer](https://docs.devexpress.com/MAUI/404632/pdf-viewer/pdf-viewer?v=24.1): [DocumentSource](https://docs.devexpress.com/MAUI/DevExpress.Maui.Pdf.PdfViewer.DocumentSource?v=24.1)
 
 ## Files to Review
 
