@@ -6,9 +6,9 @@
 
 # Populate E-Forms in a PDF File 
 
-This example uses the [PDFViewer](https://docs.devexpress.com/MAUI/DevExpress.Maui.Pdf.PdfViewer?v=24.1) component to display and edit a PDF document that contains interactive forms (AcroForms).
+This example uses the [PdfViewer](https://docs.devexpress.com/MAUI/DevExpress.Maui.Pdf.PdfViewer?v=24.1) component to display and edit a PDF document that contains interactive forms (AcroForms).
 
-<img width="40%" alt="DevExpress PDFViewer for .NET MAUI" src="Images/app-preview.gif">
+<img width="40%" alt="DevExpress PDF Viewer for .NET MAUI" src="Images/app-preview.gif">
 
 ## Included Controls and Their Properties
 
