@@ -2,6 +2,7 @@
     <PropertyGroup>
         <TargetFrameworks>net8.0-ios;net8.0-android;</TargetFrameworks>
         <OutputType>Exe</OutputType>
+        <UseMaui>true</UseMaui>
         <SingleProject>true</SingleProject>
         <RootNamespace>FillPDFFile</RootNamespace>
         <MauiVersion>8.0.20</MauiVersion>
@@ -35,7 +36,10 @@
         <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="DevExpress.Maui.Pdf" Version="24.1.*-*" />
+        <PackageReference Include="DevExpress.Maui.Pdf" Version="24.1.*" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+        <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+        <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
     </ItemGroup>
 </Project>
