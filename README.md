@@ -2,6 +2,7 @@
 ![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/671980886/23.1.3%2B)
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T1181193)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
+[![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
 # Populate E-Forms in a PDF File
 
@@ -67,3 +68,10 @@ This example implements a view that opens a PDF File, obtains form fields, and a
 * If the [DataFormComboBoxItem](https://docs.devexpress.com/MAUI/DevExpress.Maui.DataForm.DataFormComboBoxItem) contains a limited number of available items, it displays items within a popup. Otherwise, the [DataFormComboBoxItem.PickerShowMode](https://docs.devexpress.com/MAUI/DevExpress.Maui.DataForm.DataFormComboBoxItem.PickerShowMode) property is set to [BottomSheet](https://docs.devexpress.com/MAUI/DevExpress.Maui.Editors.DropDownShowMode) and  displays the item list in the DevExpress .NET MAUI  [BottomSheet](https://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.BottomSheet) control. 
 
 * The [PdfDocumentProcessor.SaveDocument](https://docs.devexpress.com/OfficeFileAPI/DevExpress.Pdf.PdfDocumentProcessor.SaveDocument.overloads) method saves changes.
+<!-- feedback -->
+## Does this example address your development requirements/objectives?
+
+[<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=maui-populate-pdf-file-forms&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=maui-populate-pdf-file-forms&~~~was_helpful=no)
+
+(you will be redirected to DevExpress.com to submit your response)
+<!-- feedback end -->
