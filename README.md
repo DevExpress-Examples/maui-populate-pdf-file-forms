@@ -7,14 +7,14 @@
 
 # Populate E-Forms in a PDF File 
 
-This example uses the [PdfViewer](https://docs.devexpress.com/MAUI/DevExpress.Maui.Pdf.PdfViewer?v=24.1) component to display and edit a PDF document that contains interactive forms (AcroForms).
+This example uses the [PdfViewer](https://docs.devexpress.com/MAUI/DevExpress.Maui.Pdf.PdfViewer) component to display and edit a PDF document that contains interactive forms (AcroForms).
 
 <img width="40%" alt="DevExpress PDF Viewer for .NET MAUI" src="Images/app-preview.gif">
 
 ## Included Controls and Their Properties
 
 * [ToolbarItem](https://learn.microsoft.com/en-us/dotnet/api/microsoft.maui.controls.toolbaritem)
-* [PdfViewer](https://docs.devexpress.com/MAUI/404632/pdf-viewer/pdf-viewer?v=24.1): [DocumentSource](https://docs.devexpress.com/MAUI/DevExpress.Maui.Pdf.PdfViewer.DocumentSource?v=24.1)
+* [PdfViewer](https://docs.devexpress.com/MAUI/404632/pdf-viewer/pdf-viewer): [DocumentSource](https://docs.devexpress.com/MAUI/DevExpress.Maui.Pdf.PdfViewer.DocumentSource)
 
 ## Files to Review
 
@@ -23,9 +23,9 @@ This example uses the [PdfViewer](https://docs.devexpress.com/MAUI/DevExpress.Ma
 
 ## Documentation
 
-* [DevExpress PDF Viewer for .NET MAUI](https://docs.devexpress.com/MAUI/404632/pdf-viewer/pdf-viewer?v=24.1)
-* [PDF Viewer for .NET MAUI - Load Document](https://docs.devexpress.com/MAUI/404712/pdf-viewer/load-document?v=24.1#load-a-pdf-file)
-* [Fill in Interactive Forms in DevExpress PDF Viewer for .NET MAUI](https://docs.devexpress.com/MAUI/404953/pdf-viewer/interactive-forms?v=24.1)
+* [DevExpress PDF Viewer for .NET MAUI](https://docs.devexpress.com/MAUI/404632/pdf-viewer/pdf-viewer)
+* [PDF Viewer for .NET MAUI - Load Document](https://docs.devexpress.com/MAUI/404712/pdf-viewer/load-document#load-a-pdf-file)
+* [Fill in Interactive Forms in DevExpress PDF Viewer for .NET MAUI](https://docs.devexpress.com/MAUI/404953/pdf-viewer/interactive-forms)
 
 ## More Examples
 
